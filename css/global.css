@@ -1,14 +1,14 @@
 /* Fonts */
 @font-face {
-    font-family: 'exolight';
-    src: url('fonts/exo-light-webfont.eot');
-    src: url('fonts/exo-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/exo-light-webfont.woff2') format('woff2'),
-         url('fonts/exo-light-webfont.woff') format('woff'),
-         url('fonts/exo-light-webfont.ttf') format('truetype'),
-         url('fonts/exo-light-webfont.svg#exolight') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'exolight';
+  src: url('fonts/exo-light-webfont.eot');
+  src: url('fonts/exo-light-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/exo-light-webfont.woff2') format('woff2'),
+       url('fonts/exo-light-webfont.woff') format('woff'),
+       url('fonts/exo-light-webfont.ttf') format('truetype'),
+       url('fonts/exo-light-webfont.svg#exolight') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* Links */
@@ -32,31 +32,86 @@ body {
   background: url('../images/inner.jpg');
   background-size: cover;
   background-attachment: fixed;
-  
+
   /* Text Style */
   color: white;
   font-size: 16pt;
   text-align: center;
-  
+
   /* Vertical Align Stuff */
   height: 100%;
   width: 100%;
   padding: 0;
   margin: 0;
-  display: table;
+  display: flex;
+  align-items: center;
   -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,5);
-  -moz-box-shadow: inset 0 0 100px rgba(0,0,0,5);
+     -moz-box-shadow: inset 0 0 100px rgba(0,0,0,5);
           box-shadow: inset 0 0 100px rgba(0,0,0,5);
 }
 
+/* Float */
+.hvr-float {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.hvr-float:hover, .hvr-float:focus, .hvr-float:active {
+  -webkit-transform: translateY(-8px);
+  transform: translateY(-8px);
+}
+
 /* Classes */
+.inner {
+  width: 100%;
+  max-height: 100%;
+  overflow: auto;
+}
+
+.header,
+.content,
+.footer {
+  padding: 5px;
+  width: 70%;
+  margin: auto;
+}
+
+.header {
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
 .menu {
+  margin-left: auto;
   font-size: 14pt;
 }
 
-.inner {
-  display: table-cell;
-  vertical-align: middle;
+.content {
+  text-align: justify;
+  font-size: 13pt;
+  display: flex;
+}
+
+.content > .column {
+  flex: 1;
+}
+
+.content > .right.aligned.column {
+ text-align: right;
+}
+
+.content > .column > :first-child {
+  margin-top: 0em;
 }
 
 .btn {
@@ -67,14 +122,23 @@ body {
   padding: .5em 1em;
 }
 
-.btn:hover {
+.btn:hover,
+.btn.active {
   color: orange;
   border: 2px solid orange;
 }
 
-.active {
-  color: orange;
-  border: 2px solid orange;
+.btn:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.social > img {
+  width: 36px;
+  height: 36px;
+}
+
+.social:not(:last-child) {
+  margin-right: 5px;
 }
 
 .icefog {
@@ -87,26 +151,23 @@ body {
   color: orange;
 }
 
-.pogorollhome {
-	display: block;
-	width: 876px;
-	height: 300px;
-	background: url('../images/pogoroll.png') top;
-	text-indent: -99999px;
+.pogoroll {
+  background: url('../images/pogoroll.png') top;
+  background-size: cover;
+  text-indent: -99999px;
+  margin-top: 8px;
 }
 
-.pogorollhome:hover {
-	background-position: 0 -300;
+.pogoroll:hover {
+  background-position: 0 -100%;
 }
 
-.pogoroll2 {
-	display: block;
-	width: 234px;
-	height: 80px;
-	background: url('../images/pogoroll2.png') top;
-	text-indent: -99999px;
+.big.pogoroll {
+  width: 876px;
+  height: 300px;
 }
 
-.pogoroll2:hover {
-	background-position: 0 -80;
+.small.pogoroll {
+  width: 219px;
+  height: 75px;
 }
